@@ -4,53 +4,45 @@ using UnityEngine;
 
 public class CubeCollision : MonoBehaviour
 {
-
-    private AudioSource audiosource;
     public AudioClip block;
+    private AudioSource audiosource;
+    public GameObject blocksound;
 
-    public GameObject ground;
-    public GameObject CubePrefab;
-    public GameObject UnityChan2D;
-
-    void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
         GameObject collidedObject = collision.gameObject;
 
-        if (collision.gameObject.CompareTag("ground"))
+        if (collidedObject.CompareTag("ground") || collidedObject.CompareTag("Cube"))
         {
-            PlaySound();
+            PlaySound(collidedObject);
         }
 
-        if (collision.gameObject.CompareTag("Cube"))
+        if (collidedObject.CompareTag("unitychan2D"))
         {
-            PlaySound();
+            // âΩÇ©èàóùÇ™ïKóvÇ»ÇÁÇ±Ç±Ç…èëÇ≠
         }
 
-        if (collision.gameObject.CompareTag("unitychan2D"))
+        if (audiosource == null)
         {
-
-        }
-    }
-
-    void PlaySound()
-    {
-        if(audiosource!=null&&block!=null)
-        {
-            audiosource.PlayOneShot(block);
+           
+            Debug.LogError("AudioSource not found on the blocksound GameObject.");
         }
     }
 
-    // Start is called before the first frame update
-    void Start()
+    void PlaySound(GameObject obj)
     {
-        audiosource = GetComponent<AudioSource>();
-    }
+        
+            AudioSource audioSource = obj.GetComponent<AudioSource>();
 
-    void Update()
-    {
+            if (audioSource !=null&&audioSource.clip !=null)
+            {
+               audioSource.Play(); 
+            }
+
+            
+          
         
     }
 
-    // Update is called once per frame
-
+  
 }

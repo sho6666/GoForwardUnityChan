@@ -3,7 +3,11 @@ guid: cc1010c7ac57f9a43ac4e12174e59491
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - block: {fileID: 8300000, guid: 4c5f1f80ee5c9be4887808d6a3b319b6, type: 3}
+  - ground: {fileID: 7757719035571284913, guid: 3cccf1faa6593c044ac6816e9a08c39f, type: 3}
+  - Cube: {fileID: 4622426151701863821, guid: 8e6f440c56907bb499d928d15204f73f, type: 3}
+  - UnityChan2D: {fileID: 213655591381428198, guid: 477eaf40f150f3d46b35fd1ed17a70b0, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
